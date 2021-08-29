@@ -33,3 +33,27 @@
 
 	<%= f.submit "Send answer", class: 'btn btn-outline-dark btn-sm' %>
 <% end %>
+
+<% if @answers.any? %>
+	<hr>
+	<div>
+		<h2>Answers</h2>
+	</div>
+
+	<% @answers.each do |answer| %>
+		<div class="mt-5">
+			<p>
+				<%= answer.body %>
+			</p>
+			<small class="mb-3">
+				<em>
+					Created at <%= answer.formatted_created_at %>
+				</em>
+			</small>
+		</div>
+
+		<%= link_to 'Delete answer',  question_answer_path(@question, answer), class: 'btn btn-outline-danger btn-sm', method: :delete, data: {confirm: 'Are you sure to delete answer?'} %>
+
+		<hr>
+	<% end %>
+<% end %>
