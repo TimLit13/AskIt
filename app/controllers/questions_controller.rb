@@ -3,6 +3,10 @@ class QuestionsController < ApplicationController
     @questions = Question.all.order(created_at: :desc)
   end
 
+  def show
+    @question = Question.find_by id: params[:id]
+  end
+
   def new
     @question = Question.new
   end
@@ -26,6 +30,15 @@ class QuestionsController < ApplicationController
       redirect_to questions_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @question = Question.find_by id: params[:id]
+    if @question.destroy
+      redirect_to questions_path
+    else
+      render plain: "Can't delete question"
     end
   end
 
