@@ -2,6 +2,8 @@
 
 <h1 class="mb-4">Questions</h1>
 
+<%= paginate @questions, outer_window: 3  %>
+
 <% @questions.each do |question| %>
 	<div class="card mt-3">
 	  <h5 class="card-header"><%= question.title %></h5>
@@ -22,3 +24,5 @@
 	</div>
 	</div>
 <% end %>
+
+<%= paginate @questions, outer_window: 3  %>

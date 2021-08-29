@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
-    @answers = @question.answers.order created_at: :desc
+    @answers = @question.answers.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -56,6 +56,6 @@ class QuestionsController < ApplicationController
   end
 
   def set_questions
-    @questions = Question.all.order(created_at: :desc)
+    @questions = Question.all.order(created_at: :desc).page params[:page]
   end
 end

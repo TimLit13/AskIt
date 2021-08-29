@@ -36,6 +36,7 @@
 <% end %>
 
 <% if @answers.any? %>
+	<%= paginate @answers %>
 	<hr>
 	<div>
 		<h2>Answers</h2>
@@ -58,4 +59,5 @@
 
 		<hr>
 	<% end %>
+	<%= paginate @answers %>
 <% end %>
