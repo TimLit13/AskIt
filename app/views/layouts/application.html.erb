@@ -10,11 +10,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <header class="bg-dark">
-    <%= render 'layouts/navbar' %>
+    <%= render 'shared/navbar' %>
   </header>
   <body>
+    <div class = "container mt-3">
+      <%= render 'shared/flash' %>
+    </div>
       <main class = "container mt-3">
         <%= yield %>
       </main>
