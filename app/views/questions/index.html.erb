@@ -10,5 +10,7 @@
 	<div>
 		<i>Created at <%= question.formatted_created_at %></i> 
 	</div>
+	<br>
+	<%= link_to 'Edit', edit_question_path(question) %>
 	<hr>
 <% end %>
