@@ -1,4 +1,5 @@
 class Question < ApplicationRecord
+  has_many :answers
   validates :body, presence: true, length: {minimum: 3}
   validates :title, presence: true, length: {minimum: 3}
 
