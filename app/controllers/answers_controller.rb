@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :set_question!, only: %i[create destroy]
+  before_action :set_question!, only: %i[create destroy edit update]
 
   def create
     @answer = @question.answers.build answer_params
@@ -13,13 +13,26 @@ class AnswersController < ApplicationController
     end
   end
 
+  def edit
+    @answer = @question.answers.find params[:id]
+  end
+
+  def update
+    if @question.answers.find(params[:id]).update answer_params
+      flash[:warning] = "Answer updated!"
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     answer = @question.answers.find params[:id]
     if answer.destroy
       flash[:warning] = 'Answer successfully deleted'
       redirect_to question_path(@question)
     else
-      @answers = Answer.order created_at: :desc
+      @answers = @question.answers.order created_at: :desc
       render 'questions/show'
     end
   end
