@@ -44,7 +44,7 @@
 	<% @answers.each do |answer| %>
 		<div class="mt-5" id="answer-<%= answer.id %>">
 			<p>
-				<%= answer.body %>
+				<%= sanitize answer.body %>
 			</p>
 			<small class="mb-3">
 				<em>
