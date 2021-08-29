@@ -7,7 +7,7 @@
 	  <h5 class="card-header"><%= question.title %></h5>
 	  <div class="card-body">
 	    <p class="card-text">
-	    	<%= strip_tags question.body %>
+	    	<%= truncate strip_tags(question.body), lenght: 150, omission: '... (continued)' %>
 	    </p>
 	    <p class="card-text">
 	    	<small>
