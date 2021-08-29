@@ -1,19 +1,22 @@
 <h1 class="mb-4">Questions</h1>
 
 <% @questions.each do |question| %>
-	<div class="card">
+	<div class="card mt-3">
 	  <h5 class="card-header"><%= question.title %></h5>
 	  <div class="card-body">
 	    <p class="card-text">
 	    	<%= question.body %>
 	    </p>
 	    <p class="card-text">
-	    	<i>
-	    		Created at <%= question.formatted_created_at %>
-	    	</i>
+	    	<small>
+	    		<em>
+	    			Created at <%= question.formatted_created_at %>
+	    		</em>
+	    	</small>
 	    </p>
-	   	<%= link_to 'Show', question_path(question), class: 'btn btn-outline-success' %>
-	   	<%= link_to 'Edit', edit_question_path(question), class: 'btn btn-outline-secondary' %>
-		<%= link_to 'Delete', question_path(question), method: :delete, data: {confirm: "Are you sure to delete #{question.title} post?"}, class: 'btn btn-outline-danger' %>
+	   	<%= link_to 'Show', question_path(question), class: 'btn btn-outline-success btn-sm' %>
+	   	<%= link_to 'Edit', edit_question_path(question), class: 'btn btn-outline-secondary btn-sm' %>
+		<%= link_to 'Delete', question_path(question), method: :delete, data: {confirm: "Are you sure to delete #{question.title} post?"}, class: 'btn btn-outline-danger btn-sm' %>
+	</div>
 	</div>
 <% end %>
